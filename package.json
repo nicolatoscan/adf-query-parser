@@ -1,0 +1,15 @@
+{
+  "name": "adf-query-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-types": "^0.1.209",
+    "typescript": "^5.1.6"
+  }
+}

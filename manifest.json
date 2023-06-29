@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Clean Text Copy",
+  "version": "1.0",
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "permissions": [
+    "contextMenus",
+    "clipboardWrite",
+    "tabs",
+    "clipboardRead",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "dist/content.js"
+      ]
+    }
+  ],
+  "commands": {
+    "copyADF": {
+      "suggested_key": {
+        "default": "Alt+Shift+C",
+        "mac": "Alt+Shift+C"
+      },
+      "description": "Copy ADF Query."
+    },
+    "pasteADF": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Alt+Shift+V"
+      },
+      "description": "Paste ADF Query."
+    }
+  }
+}
