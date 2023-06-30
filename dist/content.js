@@ -31,7 +31,7 @@ function copyToTheClipboard(t) {
 function pasteFromClipboard() {
     return __awaiter(this, void 0, void 0, function* () {
         let t = yield navigator.clipboard.readText();
-        t = t.replace(/\r\n/g, '\\n').replace(/\n/g, '\\n').replace(/@(\w+)/g, '{$$1}');
+        t = t.replace(/\r\n/g, '\\n').replace(/\n/g, '\\n').replace(/@(\w+)/g, '{$$$1}');
         if (!t.startsWith('"'))
             t = `"${t}`;
         if (!t.endsWith('"'))
