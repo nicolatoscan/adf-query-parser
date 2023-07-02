@@ -24,7 +24,7 @@ function copyToTheClipboard(t) {
             t = t.slice(1);
         if (t.endsWith('"'))
             t = t.slice(0, -1);
-        t = t.replace(/\\n/g, '\n').replace(/\{\$(\w+)}/g, '@$1');
+        t = t.replace(/\\n/g, '\n').replace(/\'{\$(\w+)}'/g, '@$1');
         yield navigator.clipboard.writeText(t);
     });
 }
