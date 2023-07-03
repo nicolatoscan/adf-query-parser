@@ -24,14 +24,14 @@ function copyToTheClipboard(t) {
             t = t.slice(1);
         if (t.endsWith('"'))
             t = t.slice(0, -1);
-        t = t.replace(/\\n/g, '\n').replace(/\'{\$(\w+)}'/g, '@$1');
+        t = t.replace(/\\n/g, '\n').replace(/\'{\$(\w+)}'/g, '@$1').replace(/-- DECLARE/g, 'DECLARE');
         yield navigator.clipboard.writeText(t);
     });
 }
 function pasteFromClipboard() {
     return __awaiter(this, void 0, void 0, function* () {
         let t = yield navigator.clipboard.readText();
-        t = t.replace(/\r\n/g, '\\n').replace(/\n/g, '\\n').replace(/@(\w+)/g, '\'{$$$1}\'');
+        t = t.replace(/\r\n/g, '\\n').replace(/\n/g, '\\n').replace(/@(\w+)/g, '\'{$$$1}\'').replace(/DECLARE/g, '-- DECLARE');
         if (!t.startsWith('"'))
             t = `"${t}`;
         if (!t.endsWith('"'))
